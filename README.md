@@ -10,6 +10,7 @@ The archive page used by ChessSpider: https://www.chess.com/games/archive?gameOw
 - You have the Unlimited Game Review feature enabled (Platinum or Diamond subscription) on chess.com.
 - You are logged in your chess.com account via Chrome.
 - You have the Selenium WebDriver package (v4.10.0) in your Python (v3.8.13) environment.
+  - Check the version
 - You have ChromeDrive on your machine (https://chromedriver.chromium.org/downloads).
     Download the driver version that matches your Chrome version. To check your version, go to chrome://version.
 
@@ -43,6 +44,9 @@ Example *config.json* file:
 The script can be executed successfully only if all Prerequisites are fulfilled, and a *config.json* containing the correct values is present in the src directory.
 
 Make sure Chrome is closed before you run the script, otherwise, it won't work.
+If on startup Chrome continues where you left off. (You can see this setting in chrome://settings/onStartup) then it won't work.
+You must exit Chrome, is you don't to lose all the tabs you can go to the three dots, and select Exit.
+(Tip: this can also be done using "alt + f" and then "x")
 
 After you run *spider.py*, it will open Chrome and do its job. You should see some logs in the terminal which started the script.
 
