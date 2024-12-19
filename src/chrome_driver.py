@@ -1,3 +1,5 @@
+from webdriver_manager.chrome import ChromeDriverManager
+
 from config import config
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -15,6 +17,10 @@ def start ():
 
     # Set up Chrome driver service.
     service = Service(config['driver-path'])
+    ChromeDriverManagerExecutableDirectory = ChromeDriverManager(driver_version="131.0.6778.140").install()
+    # ChromeDriverManagerExecutableDirectory = ChromeDriverManager().install()
+
+    service = Service(ChromeDriverManagerExecutableDirectory)
 
     # Launch Chrome.
     driver = initialiseChromeDriver(options, service)
