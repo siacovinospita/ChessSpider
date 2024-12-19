@@ -2,6 +2,7 @@ from config import config
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
+from selenium.common.exceptions import SessionNotCreatedException
 
 def start ():
     """
@@ -16,5 +17,27 @@ def start ():
     service = Service(config['driver-path'])
 
     # Launch Chrome.
-    return webdriver.Chrome(service=service, options=options)
+    driver = initialiseChromeDriver(options, service)
+    return driver
+
+
+def initialiseChromeDriver(options, service):
+    try:
+        driver = webdriver.Chrome(service=service, options=options)
+        return driver
+    except SessionNotCreatedException as exp:
+        print("Check that Chrome is currently closed")
+        user_input = input("Enter \"c\" to continue: ").strip().lower()
+        if user_input == 'c':
+            print("Continuing...")
+            return initialiseChromeDriver(options, service)
+        if user_input == "restart":
+            global page_nr
+            page_nr = 1
+        else:
+            print("Exiting.")
+            exit()
+
+
+
 
