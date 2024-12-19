@@ -5,6 +5,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from selenium.common.exceptions import SessionNotCreatedException
+from webdriver_manager.chrome import ChromeDriverManager as BrowserDriverManager
 
 def start ():
     """
@@ -16,9 +17,9 @@ def start ():
     options.add_argument(f"profile-directory={config['profile-directory']}")
 
     # Set up Chrome driver service.
-    service = Service(config['driver-path'])
-    ChromeDriverManagerExecutableDirectory = ChromeDriverManager(driver_version="131.0.6778.140").install()
-    # ChromeDriverManagerExecutableDirectory = ChromeDriverManager().install()
+    # service = Service(config['driver-path'])
+    # ChromeDriverManagerExecutableDirectory = ChromeDriverManager(driver_version="131.0.6778.140").install()
+    ChromeDriverManagerExecutableDirectory = ChromeDriverManager().install()
 
     service = Service(ChromeDriverManagerExecutableDirectory)
 

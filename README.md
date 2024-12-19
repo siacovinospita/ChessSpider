@@ -13,6 +13,7 @@ The archive page used by ChessSpider: https://www.chess.com/games/archive?gameOw
   - Check the version
 - You have ChromeDrive on your machine (https://chromedriver.chromium.org/downloads).
     Download the driver version that matches your Chrome version. To check your version, go to chrome://version.
+---Can also be done if webdrivermanager
 
 ## Configurations
 
